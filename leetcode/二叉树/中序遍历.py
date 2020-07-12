@@ -7,14 +7,15 @@ def inOrderTraverse(node):
     inOrderTraverse(node.right)
 
 # 中序打印二叉树（非递归）
-def inOrderTraverse1(node):
+def inorderTraversal(root) :
+    res = []
     stack = []
-    pos = node
-    while pos is not None or len(stack) > 0:
-        if pos is not None:
-            stack.append(pos)
-            pos = pos.left
+    while stack or root:
+        if root:
+            stack.append(root)
+            root = root.left
         else:
-            pos = stack.pop()
-            print(pos.val)
-            pos = pos.right
+            cur = stack.pop()
+            res.append(cur.val)
+            root = cur.right
+    return res
