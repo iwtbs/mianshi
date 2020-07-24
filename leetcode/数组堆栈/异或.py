@@ -11,14 +11,14 @@
 '''
 
 # 除了一个数字出现一次，其他都出现了两次
-def singleNumber(self, nums: List[int]) -> int:
+def singleNumber(self, nums):
     single_number = 0
     for num in nums:
         single_number ^= num
     return single_number
 
 # 除了一个数字出现一次，其他都出现了三次
-def singleNumber(self, nums: List[int]) -> int:
+def singleNumber2(self, nums):
     res = 0
     for i in range(32):
         cnt = 0  # 记录当前 bit 有多少个1
@@ -38,7 +38,7 @@ def singleNumber(self, nums: List[int]) -> int:
 1.两个独特的的数字分成不同组
 2.相同的数字分成相同组
 '''
-def singleNumbers(self, nums: List[int]) -> List[int]:
+def singleNumbers(self, nums):
     ret = 0  # 所有数字异或的结果
     a = 0
     b = 0

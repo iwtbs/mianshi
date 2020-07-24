@@ -1,5 +1,10 @@
+'''
+1.特判,null 或者数组长度小于 3返回 
+2.对数组进行排序。
+3.双指针
+'''
 class Solution:
-    def threeSum(self, nums: [int]) -> [[int]]:
+    def threeSum(self, nums):
         nums.sort()
         res, k = [], 0
         for k in range(len(nums) - 2):

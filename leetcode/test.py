@@ -1,21 +1,23 @@
-def Find_Police( N , trust ):
-    # write code here
-    no_can = set()
-    tr = set()
-    times = dict()
-    for i,j in trust:
-        no_can.add(i)
-        tr.add(j)
-        if i not in times:
-            times[i] = [j]
-        else:
-            times[i].append(j)
-    people = set(range(1,N+1))
-    can = list(people - no_can)
-    if len(can) == 0:
-        return -1
-    for _,v in times.items():
-        if len(v) == 1:
-            return v[0]
+def find_k(nums):
+    fangcha_min = 0
+    re = 0
+    # 求总和
+    sum_all = sum(nums)
+    sum_all_pingfang = 0
+    for i in nums:
+        sum_all_pingfang += i*i
+    # 从左往右算
+    sum_left = 0
+    sum_left_pingfang = 0
+    for i in range(len(nums)):
+        sum_left += nums[i]
+        sum_left_pingfang += nums[i]*nums[i] 
+        sum_right = sum_all - sum_left
+        sum_right_pingfang = sum_all_pingfang - sum_left_pingfang
+        fangcha_sum = sum_left_pingfang/(i+1) - sum_left*sum_left + sum_right_pingfang/(len(nums)-i-1) -sum_right*sum_right
+        if fangcha_sum > fangcha_min:
+            fangcha_min = fangcha_sum
+            re = i      
+    return re
 
-print(Find_Police(2,[[1,2]]))
+print(find_k([1,2,3,4]))
